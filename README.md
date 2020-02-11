@@ -83,11 +83,11 @@ Requisitos funcionais relacionados: RF
 Pré condição: O usuário deve estar autenticado na rede social SKåL.
 Fluxo Principal
 1. Usuário logado no seu perfil, acessa a aba de grupos.
-2. Para a criação de um o grupo, o usuário deve cadastrar dados que identificam sua fianlidade, como título e descrição.
-3. Usuário cria o grupo.
+2. Para a criação de um grupo, o usuário deve cadastrar dados que identificam sua finalidade, como título e descrição.
+3. Usuário após o preenchimento dos dados necessários cria o grupo.
 
 Fluxo de Exceção
-3.1. Caso um usuário tente cadastrar um grupo com o nome já existente, deve ser emitido uma mensagem com o seguinte contexto:
+3.1. Caso o usuário tente cadastrar um grupo com o nome já existente, deve ser emitido uma mensagem com o seguinte contexto:
 "Grupo já existente, por favor, altere nome e descrição, ou clique em seguir para acompanhar grupo já existente".
 
 Pós-condição: Usuário cadastrado na rede social SKåL.
@@ -99,9 +99,9 @@ Pré condição:
 O usuário deve estar autenticado na rede social SKåL.
 A troca de mensagens só é permitida para usuários associados como "amigos" dentro da rede social.
 Fluxo Principal
-1. Usuário poderá acessar o perfil a qual deseja interação na listagem de "amigos" ou selecionar o contato no chat, caso o mesmo esteja dísponiel.
+1. Usuário poderá acessar o perfil a qual deseja interação na listagem de "amigos" ou selecionar o contato no chat, caso o mesmo esteja dísponivel.
 2. Usuário clica em Mensagens.
-3. É aberto uma janela de troca de mensagens, permitindo que as pessoas conversarem entre si.
+3. É aberto uma janela de troca de mensagens, permitindo que aos usuários conversarem entre si.
 
 Fluxo de Exceção
 
@@ -113,9 +113,9 @@ Requisitos funcionais relacionados: RF
 Pré condição: 
 O usuário deve estar autenticado na rede social SKåL.
 Fluxo Principal
-1. Após o usuário criar uma conta, por padrão, sua pagina de perfil é composto pelo dados informado nos dados cadastrado (Ver RF 2)
+1. Após o usuário criar uma conta, por padrão, sua pagina de perfil é composto pelos dados informados nos dados cadastrado (Ver RF 1)
 2. Além de adiconar, editar (ver RF1 e RF3), é possível configurar o recurso de foto, avatar.
-3. Usuário dispõe de abas ou módulos selecionaveis, onde cada aba apresenta uma lista campos de perguntas relacionadas à temática da rede.
+3. Usuário dispõe de abas ou módulos selecionaveis, onde cada aba apresenta uma lista com campos de perguntas relacionadas à temática da rede.
 4. Após o cadastro destes campo, o perfil do usuário é estruturado pelas respostas pertinentes ao seu gosto pessoal.
 
 Fluxo de Exceção
@@ -129,8 +129,7 @@ Pré condição: O usuário deve estar autenticado na rede social SKåL.
 Fluxo Principal
 1. Usuário logado no seu perfil, dispõe atráves de um campo de busca, uma categoria de usuários que estão na rede.
 2. Ao listar o(s) usuário(os) da rede, é permitido as opções seguir e adicionar.
-3. Quando a relação é criada, ocorrerá o envio de um e-mail informando que o usuário obteve um novo seguidor ou que
-4. o Usuário solicitante deseja adicionar o Usuário2 à sua rede.
+3. Quando a relação é criada, ocorrerá o envio de um e-mail informando que o usuário obteve um novo seguidor ou que o Usuário solicitante deseja adicionar o Usuário2 à sua rede.
 
 Fluxo de Exceção
 
