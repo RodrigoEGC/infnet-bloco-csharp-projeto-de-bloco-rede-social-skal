@@ -72,9 +72,64 @@ Fluxo de Exceção
 Pós-condição: Usuário exclui o seu cadastro da rede social SKåL.
 
 RF-5: A rede social deve permitir o cadastro de anunciantes( publicidade de cervejas, e pubs) para promoverem suas marcas.
+Ator: Anunciante.
+Requisitos funcionais relacionados: 
+Pré condição: O anunciante não pode estar cadastrado na rede social SKåL.
+
+Fluxo Principal
+1.Anunciante acessa o cadastro da rede social.
+2.Anunciante informa os dados de cadastro: Nome da marca,cnpj, E-mail corporativo, 
+    Nome visto por clientes, Senha, Confirmar Senha.
+3.Anunciante executa o cadastro.
+
+Fluxo de Exceção
+ 3.1. E-mail já existe.
+ 3.1.1. Deve ser informado que o E-mail já existe.
+
+Pós-condição: Anunciante cadastrado na rede social SKåL. 
+ 
+ 
 RF-6:A rede social deve permitir que os anunciantes possam visualizar seus dados cadastrados.
+Ator: Anunciante.
+Requisitos funcionais relacionados: RF5
+Pré condição: O Anunciante deve estar cadastrado na rede social SKåL.
+
+Fluxo Principal
+1.Anunciante visualiza o seu cadastro da rede social: Nome da marca, E-mail corporativo, Nome visto por clientes.
+
 RF-7:A rede social deve permitir que os anunciantes possam editar os seus dados cadastrados.
+Ator: Anunciante.
+Requisitos funcionais relacionados: RF6
+Pré condição: O anunciante deve estar logado na rede social SKåL e visualizar os seus dados cadastrais (ver RF6) antes de iniciar a edição dos seus dados.
+
+Fluxo Principal
+1.Anunciante acessa o cadastro da rede social.
+2.Anunciante pode editar qualquer um dos dados cadastrados: Nome da marca,cnpj, E-mail corporativo, 
+    Nome visto por clientes, Senha, Confirmar Senha.
+3.Anunciante executa a atualização de cadastro.
+
+Fluxo de Exceção
+2.1. Para editar a senha, será necessário informar: senha atual, nova senha e confirmar nova senha.
+2.2. Ao editar o e-mail, deve ser validado se o novo e-mail já está cadastrado para outro anunciante e, se estiver, deve ser informado para o anunciante.
+
+Pós-condição: Anunciante atualiza o cadastrado na rede social SKåL. 
+ 
+ 
 RF-8:A rede social deve permitir que os anunciantes possam deletar os dados cadastrados.
+Ator: Anunciante.
+Requisitos funcionais relacionados: RF6
+Pré condição: O usuário deve estar logado na rede social SKåL e visualizar os seus dados cadastrais (ver RF6) antes de excluir seus dados.
+
+Fluxo Principal
+1.Anunciante acessa o cadastro da rede social.
+2.Anunciante executa a exclusão de cadastro.
+
+Fluxo de Exceção
+2.1. Antes de confirmar a exclusão do Anunciante, uma mensagem será exibida com a opção de cancelar esta ação e outra para confirmar.
+2.2. Se optar por cancelar a exclusão, o mesmo retornará para a tela de visualização dos dados cadastrais.
+2.3. Se optar por confirmar a exclusão, o mesmo será informado que os seus dados foram excluídos do cadastro da rede social SKål e este será redirecionado para a de login na rede.
+
+Pós-condição: Anunciante exclui o seu cadastro da rede social SKåL.
 
 
 RF-9: Criação de grupos específicos de cervejas [Tipos, ex: Pilsen, Ale].
