@@ -1,15 +1,18 @@
-### Skal
-Uma Rede Social para Degustadores de Cervejas
-
+### [Skal]()
 Este Projeto é pertinente à materia .NET da grade de Engenharia de Computação no Instituto Infnet.
- 
- 
-### Integrantes: 	
+Redes sociais existem com o objetivo de interações.
+Para este projeto da Faculdade foi proposto o tema de uma Rede Social de livre abordagem.
+Os membros deste grupo composto por 3 pessoas, tem como intuito ampliar e divulgar o Universo das Cervejas Especiais.
+A proposta baseia-se no compartilhamento entre cervejeiros, amadores, bares, pubs, eventos.
+
+**_Skal - Uma Rede Social para Degustadores de Cervejas_**
+
+### [Integrantes]()	
 * Wander Falcão
 * Venícius Setubal
 * Rodrigo Araújo
  
-### Responsáveis pela escrita dos requisitos:
+### [Responsáveis pela escrita dos requisitos]()
 * RF1, RF2, RF3 e RF4 - Venícius Setubal
 * RF5, RF6, RF7 e RF8 - Wander Falcão
 * RF9, RF10, RF11 e RF12 - Rodrigo Araújo
@@ -191,4 +194,7 @@ Fluxo de Exceção
 Pós-condição: Usuário cadastrado na rede social SKåL.
  
 ```
+## [Screenshots]()
+
+Em breve prototipação...
 
