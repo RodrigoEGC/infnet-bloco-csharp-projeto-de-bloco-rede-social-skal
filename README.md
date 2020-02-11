@@ -5,9 +5,9 @@ Este Projeto é pertinente à materia .NET da grade de Engenharia de Computaçã
  
  
 ### Integrantes: 	
-*Wander Falcão
-*Venícius Setubal
-*Rodrigo Araújo
+* Wander Falcão
+* Venícius Setubal
+* Rodrigo Araújo
  
 ### Responsáveis pela escrita dos requisitos:
 * RF1, RF2, RF3 e RF4 - Venícius Setubal
@@ -15,10 +15,10 @@ Este Projeto é pertinente à materia .NET da grade de Engenharia de Computaçã
 * RF9, RF10, RF11 e RF12 - Rodrigo Araújo
 
 
-*** Requisitos Funcionais ***
+## Requisitos Funcionais
 
 ```bash 
-###### RF1: Cadastro na Rede Social SKåL
+RF1: Cadastro na Rede Social SKåL
 Ator: Usuário.
 Requisitos funcionais relacionados: RF
 Pré condição: O usuário não pode estar cadastrado na rede social SKåL.
@@ -34,14 +34,14 @@ Fluxo de Exceção
 Pós-condição: Usuário cadastrado na rede social SKåL. 
  
  
-###### RF2: Visualizar os dados do Usuário cadastrados na rede social SKåL.
+RF2: Visualizar os dados do Usuário cadastrados na rede social SKåL.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF1
 Pré condição: O usuário deve estar cadastrado na rede social SKåL.
 Fluxo Principal
 1. Usuário visualiza o seu cadastro da rede social: Nome, Sobrenome, E-mail, Nome de Usuário.
 
-###### RF3: O usuário deve poder editar os seus dados cadastrados.
+RF3: O usuário deve poder editar os seus dados cadastrados.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF2
 Pré condição: O usuário deve estar logado na rede social SKåL e visualizar os seus dados cadastrais (ver RF2) antes de iniciar a edição dos seus dados.
@@ -56,7 +56,7 @@ Fluxo de Exceção
 
 Pós-condição: Usuário atualiza o cadastrado na rede social SKåL. 
  
-###### RF4: O usuário deve poder apagar os seus dados cadastrados, assim excluindo sua conta da rede social SKåL.
+RF4: O usuário deve poder apagar os seus dados cadastrados, assim excluindo sua conta da rede social SKåL.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF2
 Pré condição: O usuário deve estar logado na rede social SKåL e visualizar os seus dados cadastrais (ver RF2) antes de excluir seus dados.
@@ -77,7 +77,7 @@ RF-7:A rede social deve permitir que os anunciantes possam editar os seus dados 
 RF-8:A rede social deve permitir que os anunciantes possam deletar os dados cadastrados.
 
 
-###### RF-9: Criação de grupos específicos de cervejas [Tipos, ex: Pilsen, Ale].
+RF-9: Criação de grupos específicos de cervejas [Tipos, ex: Pilsen, Ale].
 Ator: Usuário.
 Requisitos funcionais relacionados: RF
 Pré condição: O usuário deve estar autenticado na rede social SKåL.
@@ -92,7 +92,7 @@ Fluxo de Exceção
 
 Pós-condição: Usuário cadastrado na rede social SKåL.
 
-###### RF-10: Permitir o envio de mensagens entre os usuários cadastrados.
+RF-10: Permitir o envio de mensagens entre os usuários cadastrados.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF
 Pré condição: 
@@ -107,22 +107,22 @@ Fluxo de Exceção
 
 Pós-condição: Usuário cadastrado na rede social SKåL.
 
-###### RF-11: Configuração de Perfil.
+RF-11: Configuração de Perfil.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF
 Pré condição: 
 O usuário deve estar autenticado na rede social SKåL.
 Fluxo Principal
 1. Após o usuário criar uma conta, por padrão, sua pagina de perfil é composto pelo dados informado nos dados cadastrado (Ver RF 2)
-2. Além de adiconar, editar (ver RF1 e RF2), é possível configurar o recurso de foto, avatar.
+2. Além de adiconar, editar (ver RF1 e RF3), é possível configurar o recurso de foto, avatar.
 3. Usuário dispõe de abas ou módulos selecionaveis, onde cada aba apresenta uma lista campos de perguntas relacionadas à temática da rede.
-4. Após o cadastro destes campo, o perfil do usuário é estruturado pela respostas pertinentes ao seu gosto pessoal.
+4. Após o cadastro destes campo, o perfil do usuário é estruturado pelas respostas pertinentes ao seu gosto pessoal.
 
 Fluxo de Exceção
 
 Pós-condição: Usuário cadastrado na rede social SKåL.
  
-###### RF-12: Permitir que usuários cadastrados adicionem outros usuários como membros da sua rede.
+RF-12: Permitir que usuários cadastrados adicionem outros usuários como membros da sua rede.
 Ator: Usuário.
 Requisitos funcionais relacionados: RF
 Pré condição: O usuário deve estar autenticado na rede social SKåL.
