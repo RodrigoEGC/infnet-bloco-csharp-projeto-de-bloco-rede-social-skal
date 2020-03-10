@@ -196,5 +196,5 @@ Pós-condição: Usuário cadastrado na rede social SKåL.
 ```
 ## [Screenshots]()
 
-Em breve prototipação...
+https://user-images.githubusercontent.com/41798833/76267575-fc1b3e80-6249-11ea-863e-8b0a0e9c8c83.png
 
