@@ -22,7 +22,7 @@ namespace WebApiClient
         {
             services.AddControllers();
 
-            services.RegisterIdentityForWebApi(Configuration);
+            //services.RegisterIdentityForWebApi(Configuration);
 
             services.RegisterInjections(Configuration);
         }
@@ -39,7 +39,7 @@ namespace WebApiClient
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseAuthorization();
 

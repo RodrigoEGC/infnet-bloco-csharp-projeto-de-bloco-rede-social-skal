@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Service", "Domain.Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crosscutting.Identity", "CrosscuttingIdentity\Crosscutting.Identity.csproj", "{CFBAC170-90C9-4985-BD9E-E57BE51497F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Injection.Control", "InjectionDepedency\Injection.Control.csproj", "{53D748FB-D926-49D3-AD9D-7616BCA0B8D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Injection.Control", "InjectionDepedency\Injection.Control.csproj", "{53D748FB-D926-49D3-AD9D-7616BCA0B8D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

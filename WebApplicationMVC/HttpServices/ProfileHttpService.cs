@@ -23,7 +23,9 @@ namespace WebApplicationMVC.HttpServices
         {
             _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
             _userHttpOptions = userHttpOptions ?? throw new ArgumentNullException(nameof(userHttpOptions));
-            _httpClient = httpClientFactory.CreateClient(userHttpOptions.CurrentValue.Name); _httpClient.Timeout = TimeSpan.FromMinutes(_userHttpOptions.CurrentValue.Timeout);
+
+            _httpClient = httpClientFactory.CreateClient(userHttpOptions.CurrentValue.Name); 
+            _httpClient.Timeout = TimeSpan.FromMinutes(_userHttpOptions.CurrentValue.Timeout);
         }
         public async Task<IEnumerable<ProfileEntity>> GetAllAsync()
         {

@@ -1,4 +1,5 @@
 using Crosscutting.Identity;
+using Domain.Model.Interfaces.Services;
 using Domain.Model.Options;
 using InjectionDepedency;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using WebApplicationMVC.Extensions;
+using WebApplicationMVC.HttpServices;
 
 namespace WebApplicationMVC
 {
@@ -24,8 +27,7 @@ namespace WebApplicationMVC
         {
             services.AddControllersWithViews();
 
-            var userHttpOptionsSection = Configuration.GetSection(nameof(UserHttpOptions)); 
-            services.AddHttpClient(userHttpOptionsSection["Name"], x => { x.BaseAddress = new Uri(userHttpOptionsSection["ApiBaseUrl"]); });
+            services.RegisterHttpClients(Configuration);
 
             services.AddRazorPages();
 
