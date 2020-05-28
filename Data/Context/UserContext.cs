@@ -6,7 +6,7 @@ namespace Data
 {
     public class UserContext : DbContext
     {
-        UserContext(DbContextOptions<UserContext> options) 
+        public UserContext(DbContextOptions<UserContext> options) 
             : base(options)
         { 
         }
