@@ -1,5 +1,7 @@
 ﻿using Domain.Model;
+using Domain.Model.Exceptions;
 using Domain.Model.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,24 +9,46 @@ namespace Data.Repositories
 {
     public class ProfileRepository : IProfileRepository
     {
-        public Task<IEnumerable<ProfileEntity>> GetAllAsync()
+        private readonly UserContext _userContext;
+        public ProfileRepository(
+            UserContext userContext)
         {
-            throw new System.NotImplementedException();
+            _userContext = userContext;
+        }
+        public async Task<IEnumerable<ProfileEntity>> GetAllAsync()
+        {
+            return await _userContext.Users.ToListAsync();
         }
 
-        public Task<ProfileEntity> GetByIdAsync(int id)
+        public async Task<ProfileEntity> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await _userContext.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task InsertAsync(ProfileEntity insertedEntity)
+        public async Task InsertAsync(ProfileEntity insertedEntity)
         {
-            throw new System.NotImplementedException();
+            _userContext.Add(insertedEntity);
+            await _userContext.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(ProfileEntity updatedEntity)
+        public async Task UpdateAsync(ProfileEntity updatedEntity)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _userContext.Update(updatedEntity);
+                await _userContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (await GetByIdAsync(updatedEntity.Id) == null)
+                {
+                    throw new RepositoryException("Perfil não encontrado!");
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
     }
 }

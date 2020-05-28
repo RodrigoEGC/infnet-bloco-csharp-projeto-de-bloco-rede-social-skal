@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Interfaces.Repositories;
 using Domain.Model.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -8,24 +9,32 @@ namespace Domain.Service
 {
     public class ProfileService : IProfileService
     {
-        public Task<IEnumerable<ProfileEntity>> GetAllAsync()
+        private readonly IProfileRepository _profileRepository;
+
+        public ProfileService(
+            IProfileRepository profileRepository)
         {
-            throw new NotImplementedException();
+            _profileRepository = profileRepository;
+        }
+        public async Task<IEnumerable<ProfileEntity>> GetAllAsync()
+        {
+            return await _profileRepository.GetAllAsync();
         }
 
-        public Task<ProfileEntity> GetByIdAsync(int id)
+        public async Task<ProfileEntity> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _profileRepository.GetByIdAsync(id);
         }
 
-        public Task InsertAsync(ProfileEntity insertedEntity)
+        public async Task InsertAsync(ProfileEntity insertedEntity)
         {
-            throw new NotImplementedException();
+
+           await _profileRepository.InsertAsync(insertedEntity);
         }
 
-        public Task UpdateAsync(ProfileEntity updatedEntity)
+        public async Task UpdateAsync(ProfileEntity updatedEntity)
         {
-            throw new NotImplementedException();
+            await _profileRepository.UpdateAsync(updatedEntity);
         }
     }
 }
