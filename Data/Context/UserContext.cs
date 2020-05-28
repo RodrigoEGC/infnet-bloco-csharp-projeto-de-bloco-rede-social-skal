@@ -2,7 +2,7 @@
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Context
+namespace Data
 {
     public class UserContext : DbContext
     {
