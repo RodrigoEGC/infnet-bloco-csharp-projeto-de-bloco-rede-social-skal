@@ -1,6 +1,7 @@
 ﻿using Domain.Model;
 using Domain.Model.Exceptions;
 using Domain.Model.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebApplicationMVC.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IProfileService _profileService;
@@ -21,7 +23,7 @@ namespace WebApplicationMVC.Controllers
         {
             var profile = await _profileService.GetAllAsync();
             if (profile == null)
-                return Redirect("/");
+                return Redirect("/Identity/Account/Login");
             return View(profile);
         }
 
@@ -33,13 +35,13 @@ namespace WebApplicationMVC.Controllers
                 return NotFound();
             }
 
-            var livroModel = await _profileService.GetByIdAsync(id.Value);
-            if (livroModel == null)
+            var profile = await _profileService.GetByIdAsync(id.Value);
+            if (profile == null)
             {
                 return NotFound();
             }
 
-            return View(livroModel);
+            return View(profile);
         }
 
         // GET: Profile/Create

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Model.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers
@@ -12,15 +14,19 @@ namespace WebApplicationMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IOptionsMonitor<TestOption> _testOption;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> logger, 
+            IOptionsMonitor<TestOption> testOption)
         {
             _logger = logger;
+            _testOption = testOption;
         }
 
         public IActionResult Index()
         {
-            return Redirect("/Identity/Account/Login");
+            return View();
         }
 
         public IActionResult Privacy()
