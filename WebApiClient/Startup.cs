@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApiClient.Extensions;
 
 namespace WebApiClient
 {
@@ -22,9 +23,13 @@ namespace WebApiClient
         {
             services.AddControllers();
 
-            //services.RegisterIdentityForWebApi(Configuration);
+            services.RegisterIdentityForWebApi(Configuration);
 
             services.RegisterInjections(Configuration);
+
+            services.RegisterConfigurations(Configuration); 
+            
+            services.ConfigureAuthentication(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +44,7 @@ namespace WebApiClient
 
             app.UseRouting();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

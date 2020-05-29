@@ -34,6 +34,8 @@ namespace WebApplicationMVC
             services.RegisterIdentityForMvc(Configuration);
 
             services.RegisterDataAccess(Configuration);
+
+            services.RegisterConfigurations(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
