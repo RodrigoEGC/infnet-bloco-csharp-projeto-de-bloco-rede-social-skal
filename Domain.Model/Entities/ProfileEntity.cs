@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Model
 {
@@ -16,22 +17,32 @@ namespace Domain.Model
 
         public string Surname { get; set; }
 
-        [Required]
-        [Display(Name = "E-mail")]
-        [EmailAddress(ErrorMessage = "E-mail em formato inválido.")] 
-        public string Email {get; set;}
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        public DateTime Birthday { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
         public string Bio { get; set; }
 
-        [Required]
-        public string UrlPhoto { get; set; }
-
-        [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
-        public string GuidId { get; set; }
+        public string Website { get; set; }
 
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        [Display(Name = "E-mail")]
+        [EmailAddress(ErrorMessage = "E-mail em formato inválido.")]
+        public string Email { get; set; }
 
+        [StringLength(50, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
+        public string BeerName { get; set; }
+
+        [StringLength(50, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
+        public string Address { get; set; }
+
+        [StringLength(50, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
+        public string AptHouse { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
     }
 }

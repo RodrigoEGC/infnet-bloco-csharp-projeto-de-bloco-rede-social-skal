@@ -9,7 +9,7 @@ namespace Data.Configuration
       public void Configure(EntityTypeBuilder<ProfileEntity> builder)
         {
             builder
-                .HasIndex(x => x.GuidId)
+                .HasIndex(x => x.Name)
                 .IsUnique();
         }
     }
