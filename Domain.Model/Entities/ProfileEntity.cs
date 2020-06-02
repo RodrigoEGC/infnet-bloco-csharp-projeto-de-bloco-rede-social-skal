@@ -17,6 +17,7 @@ namespace Domain.Model
 
         public string Surname { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime Birthday { get; set; }

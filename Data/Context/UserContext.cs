@@ -1,5 +1,6 @@
 ﻿using Data.Configuration;
 using Domain.Model;
+using Domain.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -11,6 +12,7 @@ namespace Data
         { 
         }
         public DbSet<ProfileEntity> Users { get; set; }
+        public DbSet<PostEntity> Posts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         { 
             modelBuilder.ApplyConfiguration(new ProfileConfiguration()); 

@@ -3,6 +3,7 @@ using Data.Repositories;
 using Domain.Model.Interfaces.Repositories;
 using Domain.Model.Interfaces.Services;
 using Domain.Service;
+using Domain.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +20,9 @@ namespace InjectionDepedency
                 options.UseSqlServer(configuration.GetConnectionString("UserContext"))); 
             
             services.AddScoped<IProfileService, ProfileService>(); 
-            services.AddScoped<IProfileRepository, ProfileRepository>(); 
+            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IPostRepository, PostRepository>();
         }
         public static void RegisterDataAccess(
             this IServiceCollection services, 
@@ -27,7 +30,8 @@ namespace InjectionDepedency
         { 
             services.AddDbContext<UserContext>(options => 
                 options.UseSqlServer(configuration.GetConnectionString("UserContext"))); 
-            services.AddScoped<IProfileRepository, ProfileRepository>(); 
+            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
         }
     }
 }

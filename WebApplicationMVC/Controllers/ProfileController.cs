@@ -55,7 +55,7 @@ namespace WebApplicationMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Surname,Email,Bio,UrlPhoto,GuidId")] ProfileEntity profileEntity)
+        public async Task<IActionResult> Create([Bind("Id,Name,Surname,Birthday,Bio,Website,Email,BeerName,Address,AptHouse,PhoneNumber")] ProfileEntity profileEntity)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace WebApplicationMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Surname,Email,Bio,UrlPhoto,GuidId")] ProfileEntity profileEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Surname,Birthday,Bio,Website,Email,BeerName,Address,AptHouse,PhoneNumber")] ProfileEntity profileEntity)
         {
             if (id != profileEntity.Id)
             {

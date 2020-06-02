@@ -128,7 +128,7 @@ namespace WebApplicationMVC.Areas.Identity.Pages.Account
                 HttpOnly = true,
                 Secure = true,
                 SameSite = SameSiteMode.Strict,
-                MaxAge = TimeSpan.FromMinutes(5) //refatorar para pegar de configuração    
+                MaxAge = TimeSpan.FromDays(5)   
             };
 
             _httpContextAccessor.HttpContext.Response.Cookies.Delete("profileToken"); 

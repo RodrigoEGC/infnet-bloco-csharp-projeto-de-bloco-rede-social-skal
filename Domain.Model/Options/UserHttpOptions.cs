@@ -7,6 +7,6 @@ namespace Domain.Model.Options
         public Uri ApiBaseUrl { get; set; }
         public string ProfilePath { get; set; }
         public string Name { get; set; }
-        public int Timeout { get; set; }
+        public int TimeDaysOut { get; set; }
     }
 }
