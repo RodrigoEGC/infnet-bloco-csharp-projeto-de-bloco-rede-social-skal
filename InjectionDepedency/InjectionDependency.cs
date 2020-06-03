@@ -23,6 +23,8 @@ namespace InjectionDepedency
             services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IPostRepository, PostRepository>();
+            //services.AddScoped<IBlobService, BlobService>();
+            //services.AddScoped<IBlobRepository, BlobRepository>();
         }
         public static void RegisterDataAccess(
             this IServiceCollection services, 
@@ -31,7 +33,6 @@ namespace InjectionDepedency
             services.AddDbContext<UserContext>(options => 
                 options.UseSqlServer(configuration.GetConnectionString("UserContext"))); 
             services.AddScoped<IProfileRepository, ProfileRepository>();
-            services.AddScoped<IPostRepository, PostRepository>();
         }
     }
 }

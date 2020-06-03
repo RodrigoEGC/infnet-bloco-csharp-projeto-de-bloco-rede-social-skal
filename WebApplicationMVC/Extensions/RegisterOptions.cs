@@ -16,7 +16,11 @@ namespace WebApplicationMVC.Extensions
         {
             services.Configure<UserHttpOptions>(configuration.GetSection(nameof(UserHttpOptions))); 
             services.AddOptions<TestOption>()
-            .Configure(option => { option.ExampleString = configuration.GetValue<string>("TestOption:ExampleString"); option.ExampleBool = configuration.GetValue<bool>("TestOption:ExampleBool"); option.ExampleInt = configuration.GetValue<int>("TestOption:ExampleInt"); }).Validate(x => x.Validate(), "Validação de ExampleString falhou");
+            .Configure(option => { 
+                option.ExampleString = configuration.GetValue<string>("TestOption:ExampleString"); 
+                option.ExampleBool = configuration.GetValue<bool>("TestOption:ExampleBool"); 
+                option.ExampleInt = configuration.GetValue<int>("TestOption:ExampleInt"); })
+            .Validate(x => x.Validate(), "Validação de ExampleString falhou");
         }
     }
 

@@ -21,7 +21,7 @@ namespace WebApplicationMVC.Controllers
             var posts = await _postService.GetAllAsync();
             if (posts == null)
                 return Redirect("/Identity/Account/Login");
-            return View();
+            return View(posts);
         }
 
         // GET: Post/Details/5
@@ -31,7 +31,7 @@ namespace WebApplicationMVC.Controllers
         }
 
         // GET: Post/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -39,7 +39,7 @@ namespace WebApplicationMVC.Controllers
         // POST: Post/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind()] PostEntity postEntity)
+        public async Task<IActionResult> Create([Bind("Id,Text,UrlPhoto")] PostEntity postEntity)
         {
             if (ModelState.IsValid)
             {

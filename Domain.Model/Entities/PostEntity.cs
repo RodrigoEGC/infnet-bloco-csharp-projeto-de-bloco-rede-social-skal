@@ -1,4 +1,6 @@
-﻿namespace Domain.Model.Entities
+﻿using System.Collections.Generic;
+
+namespace Domain.Model.Entities
 {
     public class PostEntity
     {

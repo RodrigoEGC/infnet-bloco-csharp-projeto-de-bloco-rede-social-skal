@@ -15,7 +15,8 @@ namespace Data
         public DbSet<PostEntity> Posts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         { 
-            modelBuilder.ApplyConfiguration(new ProfileConfiguration()); 
+            modelBuilder.ApplyConfiguration(new ProfileConfiguration());
+            modelBuilder.ApplyConfiguration(new PostConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
     }

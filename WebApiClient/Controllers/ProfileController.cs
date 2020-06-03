@@ -53,7 +53,7 @@ namespace WebApiClient.Controllers
             try
             {
                 await _profileService.InsertAsync(profileEntity);
-                return CreatedAtAction("GetLivroEntity", new { id = profileEntity.Id }, profileEntity);
+                return CreatedAtAction("GetProfileEntity", new { id = profileEntity.Id }, profileEntity);
             }
             catch (EntityValidationException e)
             {

@@ -22,6 +22,7 @@ namespace WebApplicationMVC.Extensions
             services.AddHttpClient(userHttpOptions.Name, x => { x.BaseAddress = userHttpOptions.ApiBaseUrl; });
 
             services.AddScoped<IProfileService, ProfileHttpService>();
+            services.AddScoped<IPostService, PostHttpService>();
             services.AddScoped<IAuthHttpService, AuthHttpService>();
         }
     }

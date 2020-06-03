@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain.Model.Entities;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Model
@@ -45,5 +47,7 @@ namespace Domain.Model
 
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
+
+        public List<PostEntity> Profile { get; set; }
     }
 }
