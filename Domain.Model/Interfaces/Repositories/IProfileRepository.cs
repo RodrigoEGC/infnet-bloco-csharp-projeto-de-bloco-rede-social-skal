@@ -9,5 +9,6 @@ namespace Domain.Model.Interfaces.Repositories
         Task<ProfileEntity> GetByIdAsync(int id); 
         Task InsertAsync(ProfileEntity insertedEntity); 
         Task UpdateAsync(ProfileEntity updatedEntity);
+        Task DeleteAsync(int id);
     }
 }

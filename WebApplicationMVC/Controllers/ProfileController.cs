@@ -149,6 +149,7 @@ namespace WebApplicationMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            await _profileService.DeleteAsync(id);
            return RedirectToAction(nameof(Index));
         }
     }

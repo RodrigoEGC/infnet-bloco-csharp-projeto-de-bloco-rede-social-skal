@@ -35,5 +35,9 @@ namespace Domain.Service
         {
             await _profileRepository.UpdateAsync(updatedEntity);
         }
+        public async Task DeleteAsync(int id)
+        {
+            await _profileRepository.DeleteAsync(id);
+        }
     }
 }

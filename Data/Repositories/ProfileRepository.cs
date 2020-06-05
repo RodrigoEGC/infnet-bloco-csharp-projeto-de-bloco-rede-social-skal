@@ -50,5 +50,11 @@ namespace Data.Repositories
                 }
             }
         }
+        public async Task DeleteAsync(int id)
+        {
+            var profileEntity = await _userContext.Users.FindAsync(id);
+            _userContext.Users.Remove(profileEntity);
+            await _userContext.SaveChangesAsync();
+        }
     }
 }

@@ -83,8 +83,21 @@ namespace WebApiClient.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<ProfileEntity>> DeleteProfileAsync(int id)
         {
+            if (id <= 0)
+            {
+                return NotFound();
+            }
+
+            var profileEntity = await _profileService.GetByIdAsync(id);
+            if(profileEntity == null)
+            {
+                return NotFound();
+            }
+            await _profileService.DeleteAsync(id);
+
+            return profileEntity;
         }
     }
 }
