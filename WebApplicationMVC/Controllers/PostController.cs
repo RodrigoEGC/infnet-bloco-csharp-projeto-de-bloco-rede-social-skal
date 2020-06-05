@@ -10,10 +10,14 @@ namespace WebApplicationMVC.Controllers
     public class PostController : Controller
     {
         private readonly IPostService _postService;
+        private readonly IBlobService _blobService;
 
-        public PostController(IPostService postService)
+        public PostController(
+            IPostService postService,
+            IBlobService blobService)
         {
             _postService = postService;
+            _blobService = blobService;
         }
         // GET: Post
         public async Task<IActionResult> Index()
@@ -39,12 +43,14 @@ namespace WebApplicationMVC.Controllers
         // POST: Post/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Text,UrlPhoto")] PostEntity postEntity)
+        public async Task<IActionResult> Create(PostEntity postEntity, IFormFile UrlPhoto)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var uri = _blobService.StoragePost(UrlPhoto);
+                    postEntity.UrlPhoto = uri.ToString();
                     await _postService.Send(postEntity);
                     return RedirectToAction(nameof(Index));
                 }

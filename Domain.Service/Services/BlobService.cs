@@ -3,6 +3,7 @@ using Domain.Model.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,9 +17,9 @@ namespace Domain.Service.Services
         {
             _blobRepository = blobRepository;
         }
-        public Uri StoragePost(IFormFile image)
+        public async Task<Uri> StoragePost(IFormFile image)
         {
-            return _blobRepository.StoragePost(image);
+            return await _blobRepository.StoragePost(image);
         }
 
         public async Task<Uri> StorageProfile(IFormFile image)

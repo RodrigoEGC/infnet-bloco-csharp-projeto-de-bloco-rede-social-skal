@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<form asp-action="Create">
+<form asp-action="Create"  method="post" enctype="multipart/form-data">>
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="card mb-0">
         <textarea asp-for="Text" cols="30" rows="6" class="form-control" placeholder="What are you thinking about?"></textarea>

@@ -1,5 +1,8 @@
-﻿using Domain.Model.Interfaces.Services;
+﻿using Data.Repositories;
+using Domain.Model.Interfaces.Repositories;
+using Domain.Model.Interfaces.Services;
 using Domain.Model.Options;
+using Domain.Service.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -24,6 +27,9 @@ namespace WebApplicationMVC.Extensions
             services.AddScoped<IProfileService, ProfileHttpService>();
             services.AddScoped<IPostService, PostHttpService>();
             services.AddScoped<IAuthHttpService, AuthHttpService>();
+            services.AddScoped<IBlobService, BlobService>();
+            services.AddScoped<IBlobRepository, BlobRepository>();
+
         }
     }
 }

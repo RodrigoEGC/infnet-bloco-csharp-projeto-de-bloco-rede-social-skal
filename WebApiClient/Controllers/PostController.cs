@@ -6,6 +6,7 @@ using Domain.Model.Entities;
 using Domain.Model.Exceptions;
 using Domain.Model.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiClient.Controllers
