@@ -194,7 +194,7 @@ Fluxo de Exceção
 Pós-condição: Usuário cadastrado na rede social SKåL.
  
 ```
-## [Screenshots]()
-
-![Prototipo Base](https://user-images.githubusercontent.com/41798833/76267575-fc1b3e80-6249-11ea-863e-8b0a0e9c8c83.png)
+### [Pendencias]()
+*Implementação de Edit e Delete nos posts da solução
+*Exibição de imagens armazenadas no Azure
 
