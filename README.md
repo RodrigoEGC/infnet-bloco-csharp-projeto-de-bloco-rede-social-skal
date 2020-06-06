@@ -195,6 +195,8 @@ Pós-condição: Usuário cadastrado na rede social SKåL.
  
 ```
 ### [Pendencias]()
-*Implementação de Edit e Delete nos posts da solução
-*Exibição de imagens armazenadas no Azure
+
+* Implementação de Edit e Delete nos posts da solução
+* Exibição de imagens armazenadas no Azure
+* Aperfeiçoar o DDD da solução
 
