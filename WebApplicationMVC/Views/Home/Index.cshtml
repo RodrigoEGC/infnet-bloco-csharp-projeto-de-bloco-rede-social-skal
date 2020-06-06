@@ -16,7 +16,7 @@
                                 <p class="lead mb-0">User Profile</p>
                             </div>
                         </div>
-                        <a asp-controller="Profile" asp-action="Index" class="card-text">I want to talk about two things that are quite important..</>Edit</a>
+                        <a asp-controller="Profile" asp-action="Index" class="card-text">click here for your profile information... </a>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <a href="#" class="social social-facebook text-facebook">
@@ -71,8 +71,14 @@
                 </div>
             </div>
             <div class="col-md-6">
-                @*<div class="card mb-0">
-                    <textarea name="post" id="post" cols="30" rows="6" class="form-control" placeholder="What are you thinking about?"></textarea>
+                <div class="card mb-0">
+                    <textarea name="post" id="post" 
+                              cols="30" 
+                              rows="6" 
+                              class="form-control"
+                              placeholder="Estudar tentativa de fazer o post pela pagina inicial !!!">
+  
+                    </textarea>
                     <div class="p-2">
                         <button class="btn btn-primary btn-sm float-left mr-2">
                             <i class="material-icons md-18 align-middle">file_upload</i>
@@ -83,8 +89,8 @@
                             <span class="align-middle">Post</span>
                         </button>
                     </div>
-                </div>*@
-                <partial name="../Post/Create"/>
+                </div>
+                @*<partial name="../Post/Create"/>*@
                 <p class="lead my-4 text-center text-muted"><i class="material-icons align-middle">today</i> Today</p>
                 <div class="card card-profile--activity">
                     <div class="card-header d-flex align-items-center justify-content-between">
