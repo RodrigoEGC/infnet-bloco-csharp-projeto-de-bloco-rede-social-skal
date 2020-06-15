@@ -25,7 +25,7 @@ namespace WebApplicationMVC.Controllers
             var user = await _userManager.FindByEmailAsync(email); 
             await _userManager.AddClaimAsync(user, new Claim("AdminClaim", string.Empty)); 
             await _signInManager.RefreshSignInAsync(user);
-            return RedirectToAction("Index", "Profile"); 
+            return RedirectToAction("Create", "Profile"); 
         }
 
     }
