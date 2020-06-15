@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Text)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UrlPhoto)
+                <img src="@item.UrlPhoto" alt="Text" style="width:100px; height:150px;" />
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

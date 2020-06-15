@@ -77,17 +77,16 @@
                               rows="6" 
                               class="form-control"
                               placeholder="Estudar tentativa de fazer o post pela pagina inicial !!!">
-  
                     </textarea>
                     <div class="p-2">
-                        <button class="btn btn-primary btn-sm float-left mr-2">
+                        <a asp-controller="Post" asp-action="Create" class="btn btn-primary btn-sm float-left mr-2">
                             <i class="material-icons md-18 align-middle">file_upload</i>
                             <span class="align-middle">Upload</span>
-                        </button>
-                        <button class="btn btn-success btn-sm float-right">
+                        </a>
+                        <a asp-controller="Post"  asp-action="Create" class="btn btn-success btn-sm float-right">
                             <i class="material-icons md-18 align-middle">send</i>
                             <span class="align-middle">Post</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 @*<partial name="../Post/Create"/>*@
