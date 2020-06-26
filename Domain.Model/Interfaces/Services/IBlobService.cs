@@ -8,6 +8,6 @@ namespace Domain.Model.Interfaces.Services
     public interface IBlobService
     {
         Task<Uri> StorageProfile(IFormFile image);
-        Task<Uri> StoragePost(IFormFile image);
+        Uri StoragePost(IFormFile image);
     }
 }

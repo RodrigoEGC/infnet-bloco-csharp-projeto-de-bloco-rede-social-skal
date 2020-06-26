@@ -31,10 +31,19 @@ namespace WebApiClient.Controllers
         }
 
         // GET: api/Post/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PostEntity>> GetPost(int id)
         {
-            return "value";
+            if (id <= 0)
+            {
+                return NotFound();
+            }
+            var post = await _postService.GetByIdAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return post;
         }
 
         // POST: api/Post
@@ -46,7 +55,7 @@ namespace WebApiClient.Controllers
             try
             {
                 await _postService.Send(postEntity);
-                return CreatedAtAction("GetPostEntity", new { id = postEntity.Id }, postEntity);
+                return CreatedAtAction("GetPost", new { id = postEntity.Id }, postEntity);
             }
             catch (EntityValidationException e)
             {
@@ -56,14 +65,42 @@ namespace WebApiClient.Controllers
 
         // PUT: api/Post/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Put(int id, PostEntity postEntity)
         {
+            if (id != postEntity.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _postService.UpdateAsync(postEntity);
+            }
+            catch (EntityValidationException e)
+            {
+                ModelState.AddModelError(e.PropertyName, e.Message);
+                return BadRequest(ModelState);
+            }
+
+            return NoContent();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<PostEntity>> DeleteAsync(int id)
         {
+            if (id <= 0)
+            {
+                return NotFound();
+            }
+
+            var postEntity = await _postService.GetByIdAsync(id);
+            if (postEntity == null)
+            {
+                return NotFound();
+            }
+            await _postService.DeleteAsync(id);
+
+            return postEntity;
         }
     }
 }

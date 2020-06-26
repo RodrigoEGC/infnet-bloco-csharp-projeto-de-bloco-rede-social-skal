@@ -5,10 +5,10 @@ using Domain.Model.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplicationMVC.Controllers
 {
-    [Authorize]
     public class PostController : Controller
     {
         private readonly IPostService _postService;
@@ -31,9 +31,20 @@ namespace WebApplicationMVC.Controllers
         }
 
         // GET: Post/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var post = await _postService.GetByIdAsync(id.Value);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return View(post);
         }
 
         // GET: Post/Create
@@ -65,49 +76,79 @@ namespace WebApplicationMVC.Controllers
         }
 
         // GET: Post/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var post = await _postService.GetByIdAsync(id.Value);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
         }
 
         // POST: Post/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, PostEntity postEntity)
         {
-            try
+            if (id != postEntity.Id)
             {
-                // TODO: Add update logic here
+                return NotFound();
+            }
 
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //var uri = _blobService.StoragePost(UrlPhoto);
+                    //postEntity.UrlPhoto = uri.ToString();
+                    await _postService.UpdateAsync(postEntity);
+                }
+                catch (EntityValidationException e)
+                {
+                    ModelState.AddModelError(e.PropertyName, e.Message);
+                    return View(postEntity);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (await _postService.GetByIdAsync(id) == null)
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(postEntity);
         }
 
         // GET: Post/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int? id)
         {
-            return View();
+            var post = await _postService.GetByIdAsync(id.Value);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return View(post);
         }
 
         // POST: Post/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _postService.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

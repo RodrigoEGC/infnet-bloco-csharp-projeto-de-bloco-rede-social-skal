@@ -64,7 +64,7 @@ namespace WebApplicationMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Profile}/{action=Create}");
+                    pattern: "{controller=Home}/{action=Index}");
                 endpoints.MapRazorPages();
             });
         }

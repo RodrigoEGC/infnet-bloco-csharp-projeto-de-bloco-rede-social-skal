@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace WebApplicationMVC.Controllers
 {
-    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IProfileService _profileService;

@@ -9,5 +9,8 @@ namespace Domain.Model.Interfaces.Repositories
         Task Send(PostEntity postEntity);
 
         Task<IEnumerable<PostEntity>> GetAllAsync();
+        Task<PostEntity> GetByIdAsync(int id);
+        Task UpdateAsync(PostEntity updatedEntity);
+        Task DeleteAsync(int id);
     }
 }

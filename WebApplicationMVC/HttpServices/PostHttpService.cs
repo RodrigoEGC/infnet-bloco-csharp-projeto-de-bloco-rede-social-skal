@@ -83,5 +83,60 @@ namespace WebApplicationMVC.HttpServices
                 await _signInManager.SignOutAsync();
             }
         }
+
+        public async Task<PostEntity> GetByIdAsync(int id)
+        {
+            var jwtSuccess = await AddAuthJwtToRequest();
+            if (!jwtSuccess)
+            {
+                return null;
+            }
+            var pathWithId = $"{_userHttpOptions.CurrentValue.PostPath}/{id}";
+            var httpResponseMessage = await _httpClient.GetAsync(pathWithId);
+
+            if (!httpResponseMessage.IsSuccessStatusCode)
+            {
+                await _signInManager.SignOutAsync();
+                return null;
+            }
+
+            return JsonConvert.DeserializeObject<PostEntity>(await httpResponseMessage.Content.ReadAsStringAsync());
+        }
+
+        public async Task UpdateAsync(PostEntity updatedEntity)
+        {
+            var jwtSuccess = await AddAuthJwtToRequest();
+            if (!jwtSuccess)
+            {
+                return;
+            }
+            var pathWithId = $"{_userHttpOptions.CurrentValue.PostPath}/{updatedEntity.Id}";
+
+            var httpContent = new StringContent(JsonConvert.SerializeObject(updatedEntity), Encoding.UTF8, "application/json");
+
+            var httpResponseMessage = await _httpClient.PutAsync(pathWithId, httpContent);
+
+            if (!httpResponseMessage.IsSuccessStatusCode)
+            {
+                await _signInManager.SignOutAsync();
+            }
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var jwtSuccess = await AddAuthJwtToRequest();
+            if (!jwtSuccess)
+            {
+                return;
+            }
+            await AddAuthJwtToRequest();
+            var pathWithId = $"{_userHttpOptions.CurrentValue.PostPath}/{id}";
+            var httpResponseMessage = await _httpClient.DeleteAsync(pathWithId);
+
+            if (!httpResponseMessage.IsSuccessStatusCode)
+            {
+                await _signInManager.SignOutAsync();
+            }
+        }
     }
 }

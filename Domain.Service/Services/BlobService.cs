@@ -17,9 +17,9 @@ namespace Domain.Service.Services
         {
             _blobRepository = blobRepository;
         }
-        public async Task<Uri> StoragePost(IFormFile image)
+        public  Uri StoragePost(IFormFile image)
         {
-            return await _blobRepository.StoragePost(image);
+            return  _blobRepository.StoragePost(image);
         }
 
         public async Task<Uri> StorageProfile(IFormFile image)

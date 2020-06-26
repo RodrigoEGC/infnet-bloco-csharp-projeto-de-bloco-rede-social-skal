@@ -37,9 +37,20 @@
                 <img src="@item.UrlPhoto" alt="Text" style="width:100px; height:150px;" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                    <i class="far fa-edit"> </i>
+                    Edit
+                </a>
+
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">
+                    <i class="fas fa-eye"> </i>
+                    Details
+                </a>
+
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                    <i class="far fa-trash-alt"> </i>
+                    Delete
+                </a>
             </td>
         </tr>
 }

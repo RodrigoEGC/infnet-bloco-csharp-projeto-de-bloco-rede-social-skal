@@ -7,6 +7,6 @@ namespace Domain.Model.Interfaces.Repositories
     public interface IBlobRepository
     {
         Task<Uri> StorageProfile(IFormFile image);
-        Task<Uri> StoragePost(IFormFile image);
+        Uri StoragePost(IFormFile image);
     }
 }
