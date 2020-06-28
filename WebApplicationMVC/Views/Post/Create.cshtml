@@ -7,18 +7,6 @@
         <span asp-validation-for="Text" class="text-danger"></span>
         <div class="p-2">
             <input id="file" style="width:200px;" class="btn btn-primary btn-sm float-left mr-2 form-control" type="file" asp-for="UrlPhoto" />
-            @*<img style="width: 150px; height:150px;" id="ImgPreview" />
-            <script>
-                function ImgPre(input) {
-                    if (input.files[0]) {
-                        var uploadimg = new FileReader();
-                        uploadimg.onload = function (displayimg) {
-                            $("#ImgPreview").attr('src', displayimg.target.result);
-                        }
-                        uploadimg.readAsDataURL(input.files[0]);
-                    }
-                }
-            </script>*@
             <button type="submit" class="btn btn-success btn-sm float-right">
                 <i class="material-icons md-18 align-middle">send</i>
                 <span class="align-middle">Post</span>

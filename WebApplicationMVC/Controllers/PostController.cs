@@ -94,7 +94,7 @@ namespace WebApplicationMVC.Controllers
         // POST: Post/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, PostEntity postEntity)
+        public async Task<ActionResult> Edit(int id, PostEntity postEntity, IFormFile UrlPhoto)
         {
             if (id != postEntity.Id)
             {
@@ -105,8 +105,8 @@ namespace WebApplicationMVC.Controllers
             {
                 try
                 {
-                    //var uri = _blobService.StoragePost(UrlPhoto);
-                    //postEntity.UrlPhoto = uri.ToString();
+                    var uri = _blobService.StoragePost(UrlPhoto);
+                    postEntity.UrlPhoto = uri.ToString();
                     await _postService.UpdateAsync(postEntity);
                 }
                 catch (EntityValidationException e)
