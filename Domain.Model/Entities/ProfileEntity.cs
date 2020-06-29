@@ -7,7 +7,6 @@ namespace Domain.Model
 {
     public class ProfileEntity
     {
-        [Key]
         public int Id { get; set; }
 
         [StringLength(20, MinimumLength = 3)]
@@ -20,7 +19,7 @@ namespace Domain.Model
         public string Surname { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime Birthday { get; set; }
 
@@ -47,7 +46,5 @@ namespace Domain.Model
 
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-
-        public List<PostEntity> Profile { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Crosscutting.Identity
             IConfiguration configuration) 
         { 
             AddDbContext(services, configuration); 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<AuthContext>(); 
         }
 
